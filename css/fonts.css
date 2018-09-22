@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'mono';
+    src: url(../fonts/Moon2.0-Regular.otf);
+}
+
+@font-face{
+    font-family: 'halo';
+    src: url(../fonts/HaloHandletter.otf)
+}
+
+@font-face{
+    font-family: 'alex';
+    src: url(../fonts/AlexBrush-Regular.ttf);
+}
+
+@font-face{
+    font-family: 'before';
+    src: url(../fonts/BeforeTheRain_personal_use_demo.ttf);
+}
+
+@font-face{
+    font-family: 'shit';
+    src: url(../fonts/Shit\ Happens\ trial\ d__.otf);
+}

@@ -1,0 +1,525 @@
+/*===========================================================
+                    GLOBAL STYLE                                  
+=============================================================*/
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'mono';
+    position: relative;
+    overflow: hidden;
+}
+.container-frame{
+    padding: 10%;
+    height: 100vh;
+    background-image: url(../img/frame-2.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.container{
+    height: 100%;
+    position: relative;
+}
+.container >*{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/*===========================================================
+              GLOBAL EFFECT AND BANNER                                  
+=============================================================*/
+
+.banner-layer-2{
+    background: rgba(26, 25, 25, 0.822);
+    padding: 2em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    z-index: 200;
+    top: 40vh;
+    transform: translateX(-100%);
+    transition: transform 2s ease;
+    animation: moveBanner 5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
+    animation-play-state: paused;
+}
+.banner-layer-2  p{
+    color: white;
+    font-size: 2em;
+    margin-bottom: 30px;
+    font-family: 'alex';
+}
+.banner-layer-2  i{
+    text-align: center;
+    display: block;
+    font-size: 5em;
+    color: rgb(231, 23, 120);
+    animation: arrowForwards 2s  infinite ;
+    transition: all 1s;
+    opacity: 0;
+    cursor: pointer;
+    margin-top: 30px;
+    /* display: none; */
+}
+
+/*--- --- animations --- ---*/
+@keyframes moveBanner {
+    80%{
+        transform: translateX(0);
+        top: 40vh;
+        width: 100vw;
+        height: 30vh;
+    }
+    to{
+        width: 100vw;
+        height: 100vh;
+        top: 0vh;
+        transform: translateX(0);
+    }
+}
+@keyframes arrowForwards{
+    from{
+        text-shadow: 0 0 3px  rgb(231, 23, 120),
+                     0 0 10px  rgb(247, 4, 117),
+    }
+
+    50%{
+        text-shadow: 0 0 10px  rgb(231, 23, 120),
+                     0 0 20px  rgb(247, 4, 117),
+                     0 0 30px  white;
+    }
+
+    to{
+        text-shadow: 0 0 30px  rgb(231, 23, 120),
+                     0 0 40px  rgb(247, 4, 117),
+                     0 0 60px  white;
+    }
+}
+
+/*--- --- BUTTON FOR NEXT LEVEL --- ---*/
+
+.btn-next{
+    margin: 1em;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding:.4em 1em;
+    border-radius: 10px;
+    background:  rgb(231, 23, 120);
+    transition: opacity .6s ease;
+    animation: nextLevel .8s infinite alternate linear;
+    opacity: 0;
+}
+.btn-next p{
+    font-family: 'halo';
+    font-size: 2em;
+    color: white;
+}
+
+@keyframes nextLevel{
+    from{
+        box-shadow: 0 0 3px  rgb(231, 23, 120),
+                     0 0 10px  rgb(247, 4, 117),
+    }
+
+    50%{
+        box-shadow: 0 0 10px  rgb(231, 23, 120),
+                     0 0 20px  rgb(247, 4, 117),
+                     0 0 30px  white;
+    }
+
+    to{
+        box-shadow: 0 0 30px  rgb(231, 23, 120),
+                     0 0 40px  rgb(247, 4, 117),
+                     0 0 60px  white;
+    }
+}
+/*===========================================================
+                         layer # 1 - openning                   
+=============================================================*/
+.layer-right,
+.layer-left{
+    color: white;
+    background: rgba(15, 15, 15, 0.712);
+    font-size: 15em;
+    font-family: 'halo';
+    width: 50vw;
+    height: 100vh;
+    text-align: center;
+    line-height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    transition: transform 3s linear;
+}
+.layer-right{
+    transform: translateX(100%)
+}
+.layer-right  span,
+.layer-left span{
+    display: block;
+    transform: rotateZ(-30deg);
+}
+
+.heart-openning{
+    display: flex;
+    position: absolute;
+    font-size: 15em;
+    color: rgb(243, 23, 23);
+    z-index: 100;
+    left: 36vw;
+    top: 9vw;
+    cursor: pointer;
+    transition: opacity, transform 4s ease;
+}
+
+.heart-openning > i {
+    animation: beat .3s infinite alternate ease;
+    
+}
+.heart-openning > p{
+    font-family: 'alex';
+    font-weight: bold;
+    font-size: .2em;
+    color: white;
+    text-shadow: 0 0 15px black;
+    position: absolute;
+    left: 27%;
+    top: 29%;
+}
+
+@keyframes beat {
+    to{
+        text-shadow: 0 0 100px ;
+    }
+}
+
+/*===========================================================
+                         LAYER # 2 LOVE'S DOORS               
+=============================================================*/
+
+.container-doors{
+    /* border: 2px dashed red; */
+    height: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 10%;
+    transition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 100;
+}
+
+/* .container-doors > *{
+    border: 1px dashed black;
+} */
+.frame-door{
+    perspective: 1000px;
+    position: relative;
+    
+}
+
+.door{
+    /* transform-origin: center bottom; */
+    transition: transform 1.5s ease;
+    width: 100%;
+    height: 100%;
+    background: rgb(180, 24, 180);
+    position: relative;
+    z-index: 100;
+    border-radius: 5px;
+    background-image: url(../img/puerta.png);
+    /* background: red; */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.door:hover{
+    box-shadow: 0 0 5px black;
+}
+
+.frame-door:nth-child(2)::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(../img/Foto0879.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/*--- --- GIFS --- ---*/
+.gif{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%;
+    height: calc(100% - 1px);
+    background: rgba(47, 48, 45, 0.767);
+    display: flex;
+    text-align: center;
+    /* line-height: calc(100% - 1px); */
+    align-items: center;
+    overflow: hidden;
+}
+.gif > *{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+/*--- Gif 1 ---*/
+.gif-1 p{
+    color: white;
+    font-family: 'halo';
+    font-size: 3em;
+    z-index: 10;
+    height: auto;
+    padding-bottom: 30px;
+    /* top: 30%;
+    left: 25%; */
+}
+
+.gif-2{
+
+}
+/*--- Gif 2 ---*/
+.gif-2 > div {
+    height: 7vh;
+    width: 7vh;
+    bottom: 0;
+    left: calc(100% - 7vh);
+    z-index: 20;
+}
+.gif-2 > div img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    animation: turning 1.5s infinite linear forwards;
+    cursor: pointer;
+}
+.gif-2 > div img:hover {
+    animation-play-state: paused;
+}
+.gif-2 > div:hover + p {
+    transform: scaleY(1);
+}
+
+.gif-2 >p{
+    top: 0;
+    transform-origin: center top;
+    transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scaleY(0);
+    width: 100%;
+    height: 65%;
+    z-index: 20;
+    color: white;
+    font-family: 'mono';
+    font-size: 1.5em;
+    line-height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background: rgba(236, 75, 182, 0.692);
+}
+.gif-2 >p span{
+    text-shadow: 0 0 2px black;
+}
+@keyframes turning {
+    to{
+        transform: rotateZ(1turn);
+    }
+}
+/*--- Gif 4 ---*/
+.gif-4 img{
+    position: relative;
+    display: block;
+}
+.gif-4::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/corazones.svg);
+    background-position: center center;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    opacity: .1;
+
+    animation: moveHeart 1.6s infinite;
+}
+
+@keyframes moveHeart {
+    50%{
+        transform: scale(1.2);
+    }
+    to{
+        transform: scale(1);
+    }
+    50%{
+        opacity: .8;
+    }
+    
+}
+
+/*--- Gif 5 ---*/
+.gif-5 .gif-text{
+    color: white;
+    height: auto;
+    font-family: 'alex';
+    font-size: 2em;
+    background: rgba(0, 0, 0, 0.808);
+    
+}
+.gif-5 > img:hover + .gif-text p{
+   transform: scale(1.4);
+   animation-play-state: running;
+}
+.gif-5 .gif-text p{
+    transition: transform 1.6s ;
+    text-shadow: 0 0 1px pink;
+    animation: enamorado 1.2s infinite alternate;
+    animation-play-state: paused;
+    
+}
+.gif-text p:hover{
+    transform: scale(1.4);
+    animation-play-state: running;
+ }
+@keyframes enamorado{
+    to{
+        text-shadow: 0 0 10px pink,
+                     0 0 20px red;
+    }
+}
+
+/*--- Gif 6 ---*/
+.gif-6{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+.gif-6 i{
+    height: auto;
+    color: red;
+    font-size: 2em;
+    opacity: 0;
+    animation: hearts 1.2s infinite ;
+
+}
+
+@keyframes hearts{
+    50%{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        transform: scale(1.6);
+        text-shadow: 100px 0 0,
+                 -100px 0 0,
+                 0 -100px 0,
+                 0 100px 0,
+            /* --------------- */
+                 50px 0 0,
+                 -50px 0 0,
+                 0 -50px 0,
+                 0 50px 0,
+           /* --------------- */
+                 40px 40px 0,
+                 -40px -40px 0,
+                 40px -40px 0,
+                 -40px 40px 0,
+            /* --------------- */
+                 100px 100px 0,
+                 -100px -100px 0,
+                 100px -100px 0,
+                 -100px 100px 0;
+    }
+}
+
+
+/*===========================================================
+                 LAYER # 3 SECRECT MSG                                   
+=============================================================*/
+
+.container-secret-msgs{
+    /* border: 2px dashed red; */
+    display: flex;
+    opacity: 0;
+    transition: opacity 2.s ;
+    flex-direction: column;
+}
+
+.container-secret-msgs >*{
+    height: 33.33%;
+    /* border: 1px dashed greenyellow; */
+    margin-bottom: 20px;
+}
+.container-secret-msgs :last-child{
+    margin-bottom: 0;
+    
+}
+.block{
+    position: relative;
+    
+}
+.block > *{
+    position: absolute;
+}
+.ball{
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    height: 18vh;
+    width: 18vh;
+    position: relative;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 18vh;
+    transition: transform 5s;
+    cursor: pointer;
+    box-shadow:  0 0 100px #C9478D,
+                 0 0 70px #F48585;
+    /* background: red; */
+    
+}
+@keyframes animationFlor{
+    to{
+
+    }
+}
+.ball::after{
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 120%;
+    background-image: url(../img/peony.svg);
+    background-position: center center;
+    background-size: cover;
+    top: -10px;
+    left: 0;
+
+}
+.msg{
+    font-family: 'alex';
+    font-size: 2.5em;
+    opacity: 0;
+    transition: opacity 7s ;
+    padding-left: 30px;
+}
+
+@keyframes moveBall{
+    to{
+        transform: translateX(65vw) translateY(60px) rotate(3turn) ;
+    }
+}
+

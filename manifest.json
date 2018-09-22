@@ -1,0 +1,65 @@
+{
+    "name": "Pum Animations",
+    "short_name":"Pum #GP",
+    "description":"Anomations' Pum of the day",
+    "background_color":"#F48585",
+    "theme_color":"#d732dd",
+    "orientation":"landscape",
+    "display":"standalone",
+    "start_url":"./?utm_source=web_app_manifest",
+    "scope":"./",
+    "lang":"es-MX",
+    "icons":[
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"1024x1024",
+            "types":"image/png"
+         },
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"512x512",
+            "types":"image/png"
+         },
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"384x384",
+            "types":"image/png"
+         },
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"256x256",
+            "types":"image/png"
+         },
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"192x192",
+            "types":"image/png"
+         },
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"128x128",
+            "types":"image/png"
+         },
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"96x96",
+            "types":"image/png"
+         },
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"1024x1024",
+            "types":"image/png"
+         },
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"64x64",
+            "types":"image/png"
+         },
+         {
+            "src":"./img/favicon-128x128.png",
+            "sizes":"32x32",
+            "types":"image/png"
+         }
+
+    ]
+}
